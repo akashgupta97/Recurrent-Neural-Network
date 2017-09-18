@@ -22,3 +22,10 @@ def rnn_cell_forward(xt, a_prev, parameters):
     yt_pred -- prediction at timestep "t", numpy array of shape (n_y, m)
     cache -- tuple of values needed for the backward pass, contains (a_next, a_prev, xt, parameters)
     """
+
+    # Retrieve parameters from "parameters"
+    Wax = parameters["Wax"]
+    Waa = parameters["Waa"]
+    Wya = parameters["Wya"]
+    ba = parameters["ba"]
+    by = parameters["by"]
