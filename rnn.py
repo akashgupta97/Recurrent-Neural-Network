@@ -29,3 +29,12 @@ def rnn_cell_forward(xt, a_prev, parameters):
     Wya = parameters["Wya"]
     ba = parameters["ba"]
     by = parameters["by"]
+
+ ### START CODE HERE ### (≈2 lines)
+    # compute next activation state using the formula given above
+    a_next = np.tanh(np.dot(Waa, a_prev) + np.dot(Wax, xt) + ba)
+    # compute output of the current cell using the formula given above
+    yt_pred = softmax(np.dot(Wya, a_next) + by)
+    ### END CODE HERE ###
+
+    
