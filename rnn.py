@@ -37,4 +37,7 @@ def rnn_cell_forward(xt, a_prev, parameters):
     yt_pred = softmax(np.dot(Wya, a_next) + by)
     ### END CODE HERE ###
 
-    
+    # store values you need for backward propagation in cache
+    cache = (a_next, a_prev, xt, parameters)
+
+    return a_next, yt_pred, cache
