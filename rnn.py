@@ -41,3 +41,8 @@ def rnn_cell_forward(xt, a_prev, parameters):
     cache = (a_next, a_prev, xt, parameters)
 
     return a_next, yt_pred, cache
+
+np.random.seed(1)
+xt = np.random.randn(3,10)
+a_prev = np.random.randn(5,10)
+Waa = np.random.randn(5,5)
