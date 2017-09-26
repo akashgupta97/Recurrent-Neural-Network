@@ -46,3 +46,8 @@ np.random.seed(1)
 xt = np.random.randn(3,10)
 a_prev = np.random.randn(5,10)
 Waa = np.random.randn(5,5)
+
+Wax = np.random.randn(5,3)
+Wya = np.random.randn(2,5)
+ba = np.random.randn(5,1)
+by = np.random.randn(2,1)
