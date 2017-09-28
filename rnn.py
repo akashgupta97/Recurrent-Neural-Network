@@ -51,3 +51,9 @@ Wax = np.random.randn(5,3)
 Wya = np.random.randn(2,5)
 ba = np.random.randn(5,1)
 by = np.random.randn(2,1)
+
+
+parameters = {"Waa": Waa, "Wax": Wax, "Wya": Wya, "ba": ba, "by": by}
+
+a_next, yt_pred, cache = rnn_cell_forward(xt, a_prev, parameters)
+print("a_next[4] = ", a_next[4])
