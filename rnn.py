@@ -60,3 +60,27 @@ print("a_next[4] = ", a_next[4])
 print("a_next.shape = ", a_next.shape)print("yt_pred[1] =", yt_pred[1])
 print("yt_pred[1] =", yt_pred[1])
 print("yt_pred.shape = ", yt_pred.shape)
+
+
+# GRADED FUNCTION: rnn_forward
+
+def rnn_forward(x, a0, parameters):
+    """
+    Implement the forward propagation of the recurrent neural network described in Figure (3).
+
+    Arguments:
+    x -- Input data for every time-step, of shape (n_x, m, T_x).
+    a0 -- Initial hidden state, of shape (n_a, m)
+    parameters -- python dictionary containing:
+                        Waa -- Weight matrix multiplying the hidden state, numpy array of shape (n_a, n_a)
+                        Wax -- Weight matrix multiplying the input, numpy array of shape (n_a, n_x)
+                        Wya -- Weight matrix relating the hidden-state to the output, numpy array of shape (n_y, n_a)
+                        ba --  Bias numpy array of shape (n_a, 1)
+                        by -- Bias relating the hidden-state to the output, numpy array of shape (n_y, 1)
+
+    Returns:
+    a -- Hidden states for every time-step, numpy array of shape (n_a, m, T_x)
+    y_pred -- Predictions for every time-step, numpy array of shape (n_y, m, T_x)
+    caches -- tuple of values needed for the backward pass, contains (list of caches, x)
+    """
+    
