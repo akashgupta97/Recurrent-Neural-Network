@@ -83,4 +83,18 @@ def rnn_forward(x, a0, parameters):
     y_pred -- Predictions for every time-step, numpy array of shape (n_y, m, T_x)
     caches -- tuple of values needed for the backward pass, contains (list of caches, x)
     """
+
+    # Initialize "caches" which will contain the list of all caches
+    caches = []
+
+    # Retrieve dimensions from shapes of x and Wy
+    n_x, m, T_x = x.shape
+    n_y, n_a = parameters["Wya"].shape
+
+    ### START CODE HERE ###
+
+    # initialize "a" and "y" with zeros (≈2 lines)
+    a = np.zeros((n_a, m, T_x))
+    y_pred = np.zeros((n_y, m, T_x))
+
     
