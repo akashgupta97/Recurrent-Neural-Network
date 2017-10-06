@@ -97,4 +97,5 @@ def rnn_forward(x, a0, parameters):
     a = np.zeros((n_a, m, T_x))
     y_pred = np.zeros((n_y, m, T_x))
 
-    
+    # Initialize a_next (≈1 line)
+    a_next = a0
