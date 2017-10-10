@@ -112,4 +112,8 @@ def rnn_forward(x, a0, parameters):
         caches.append(cache)
 
         ### END CODE HERE ###
-        
+
+        # store values needed for backward propagation in cache
+        caches = (caches, x)
+
+        return a, y, c, caches
