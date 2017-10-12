@@ -118,10 +118,14 @@ def rnn_forward(x, a0, parameters):
 
         return a, y, c, caches
 
-    
+
     np.random.seed(1)
     x = np.random.randn(3, 10, 7)
     a0 = np.random.randn(5, 10)
     Wf = np.random.randn(5, 5 + 3)
     bf = np.random.randn(5, 1)
     Wi = np.random.randn(5, 5 + 3)
+    bi = np.random.randn(5, 1)
+    Wo = np.random.randn(5, 5 + 3)
+    bo = np.random.randn(5, 1)
+    Wc = np.random.randn(5, 5 + 3)
