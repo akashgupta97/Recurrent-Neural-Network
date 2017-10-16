@@ -132,3 +132,5 @@ def rnn_forward(x, a0, parameters):
     bc = np.random.randn(5, 1)
     Wy = np.random.randn(2, 5)
     by = np.random.randn(2, 1)
+
+    parameters = {"Wf": Wf, "Wi": Wi, "Wo": Wo, "Wc": Wc, "Wy": Wy, "bf": bf, "bi": bi, "bo": bo, "bc": bc, "by": by}
