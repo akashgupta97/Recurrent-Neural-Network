@@ -134,3 +134,8 @@ def rnn_forward(x, a0, parameters):
     by = np.random.randn(2, 1)
 
     parameters = {"Wf": Wf, "Wi": Wi, "Wo": Wo, "Wc": Wc, "Wy": Wy, "bf": bf, "bi": bi, "bo": bo, "bc": bc, "by": by}
+
+a, y, c, caches = lstm_forward(x, a0, parameters)
+print("a[4][3][6] = ", a[4][3][6])
+print("a.shape = ", a.shape)
+print("y[1][4][3] =", y[1][4][3])
