@@ -161,3 +161,13 @@ def rnn_cell_backward(da_next, cache):
                         dWaa -- Gradients of hidden-to-hidden weights, of shape (n_a, n_a)
                         dba -- Gradients of bias vector, of shape (n_a, 1)
     """
+
+    # Retrieve values from cache
+    (a_next, a_prev, xt, parameters) = cache
+
+    # Retrieve values from parameters
+    Wax = parameters["Wax"]
+    Waa = parameters["Waa"]
+    Wya = parameters["Wya"]
+    ba = parameters["ba"]
+    by = parameters["by"]
