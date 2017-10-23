@@ -171,3 +171,11 @@ def rnn_cell_backward(da_next, cache):
     Wya = parameters["Wya"]
     ba = parameters["ba"]
     by = parameters["by"]
+
+    ### START CODE HERE ###
+    # compute the gradient of tanh with respect to a_next (≈1 line)
+    dtanh = (1 - a_next ** 2) * da_next
+
+    # compute the gradient of the loss with respect to Wax (≈2 lines)
+    dxt = np.dot(Wax.T, dtanh)
+    dWax = np.dot(dtanh, xt.T)
