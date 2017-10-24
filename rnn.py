@@ -179,3 +179,10 @@ def rnn_cell_backward(da_next, cache):
     # compute the gradient of the loss with respect to Wax (≈2 lines)
     dxt = np.dot(Wax.T, dtanh)
     dWax = np.dot(dtanh, xt.T)
+
+    # compute the gradient with respect to Waa (≈2 lines)
+    da_prev = np.dot(Waa.T, dtanh)
+    dWaa = np.dot(dtanh, a_prev.T)
+
+    # compute the gradient with respect to b (≈1 line)
+    dba = np.sum(dtanh, 1, keepdims=True)
