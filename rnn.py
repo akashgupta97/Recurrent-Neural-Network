@@ -186,3 +186,10 @@ def rnn_cell_backward(da_next, cache):
 
     # compute the gradient with respect to b (≈1 line)
     dba = np.sum(dtanh, 1, keepdims=True)
+
+    ### END CODE HERE ###
+
+    # Store the gradients in a python dictionary
+    gradients = {"dxt": dxt, "da_prev": da_prev, "dWax": dWax, "dWaa": dWaa, "dba": dba}
+
+    return gradients
