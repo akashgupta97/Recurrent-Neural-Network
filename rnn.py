@@ -193,3 +193,15 @@ def rnn_cell_backward(da_next, cache):
     gradients = {"dxt": dxt, "da_prev": da_prev, "dWax": dWax, "dWaa": dWaa, "dba": dba}
 
     return gradients
+
+np.random.seed(1)
+xt = np.random.randn(3,10)
+a_prev = np.random.randn(5,10)
+Wax = np.random.randn(5,3)
+Waa = np.random.randn(5,5)
+Wya = np.random.randn(2,5)
+b = np.random.randn(5,1)
+by = np.random.randn(2,1)
+parameters = {"Wax": Wax, "Waa": Waa, "Wya": Wya, "ba": ba, "by": by}
+
+
