@@ -205,3 +205,11 @@ by = np.random.randn(2,1)
 parameters = {"Wax": Wax, "Waa": Waa, "Wya": Wya, "ba": ba, "by": by}
 
 
+a_next, yt, cache = rnn_cell_forward(xt, a_prev, parameters)
+
+da_next = np.random.randn(5,10)
+gradients = rnn_cell_backward(da_next, cache)
+print("gradients[\"dxt\"][1][2] =", gradients["dxt"][1][2])
+print("gradients[\"dxt\"].shape =", gradients["dxt"].shape)
+print("gradients[\"da_prev\"][2][3] =", gradients["da_prev"][2][3])
+print("gradients[\"da_prev\"].shape =", gradients["da_prev"].shape)
