@@ -220,3 +220,21 @@ print("gradients[\"dWaa\"][1][2] =", gradients["dWaa"][1][2])
 print("gradients[\"dWaa\"].shape =", gradients["dWaa"].shape)
 print("gradients[\"dba\"][4] =", gradients["dba"][4])
 print("gradients[\"dba\"].shape =", gradients["dba"].shape)
+
+
+def rnn_backward(da, caches):
+    """
+    Implement the backward pass for a RNN over an entire sequence of input data.
+
+    Arguments:
+    da -- Upstream gradients of all hidden states, of shape (n_a, m, T_x)
+    caches -- tuple containing information from the forward pass (rnn_forward)
+
+    Returns:
+    gradients -- python dictionary containing:
+                        dx -- Gradient w.r.t. the input data, numpy-array of shape (n_x, m, T_x)
+                        da0 -- Gradient w.r.t the initial hidden state, numpy-array of shape (n_a, m)
+                        dWax -- Gradient w.r.t the input's weight matrix, numpy-array of shape (n_a, n_x)
+                        dWaa -- Gradient w.r.t the hidden state's weight matrix, numpy-arrayof shape (n_a, n_a)
+                        dba -- Gradient w.r.t the bias, of shape (n_a, 1)
+    """
