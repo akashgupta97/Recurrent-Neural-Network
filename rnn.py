@@ -238,3 +238,9 @@ def rnn_backward(da, caches):
                         dWaa -- Gradient w.r.t the hidden state's weight matrix, numpy-arrayof shape (n_a, n_a)
                         dba -- Gradient w.r.t the bias, of shape (n_a, 1)
     """
+
+    ### START CODE HERE ###
+
+    # Retrieve values from the first cache (t=1) of caches (≈2 lines)
+    (caches, x) = caches
+    (a1, a0, x1, parameters) = caches[0]
