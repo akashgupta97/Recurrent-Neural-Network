@@ -244,3 +244,6 @@ def rnn_backward(da, caches):
     # Retrieve values from the first cache (t=1) of caches (≈2 lines)
     (caches, x) = caches
     (a1, a0, x1, parameters) = caches[0]
+    # Retrieve dimensions from da's and x1's shapes (≈2 lines)
+    n_a, m, T_x = da.shape
+    n_x, m = x1.shape
