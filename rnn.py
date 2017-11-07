@@ -247,3 +247,11 @@ def rnn_backward(da, caches):
     # Retrieve dimensions from da's and x1's shapes (≈2 lines)
     n_a, m, T_x = da.shape
     n_x, m = x1.shape
+
+ # initialize the gradients with the right sizes (≈6 lines)
+    dx = np.zeros((n_x, m, T_x))
+    dWax = np.zeros((n_a, n_x))
+    dWaa = np.zeros((n_a, n_a))
+    dba = np.zeros((n_a, 1))
+    da0 = np.zeros((n_a, m))
+    da_prevt = np.zeros((n_a, m))
