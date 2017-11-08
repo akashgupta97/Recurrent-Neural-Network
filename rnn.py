@@ -255,3 +255,7 @@ def rnn_backward(da, caches):
     dba = np.zeros((n_a, 1))
     da0 = np.zeros((n_a, m))
     da_prevt = np.zeros((n_a, m))
+
+    # Loop through all the time steps
+    for t in reversed(range(T_x)):
+    # Compute gradients at time step t. Choose wisely the "da_next" and the "cache" to use in the backward propagation step. (≈1 line)
