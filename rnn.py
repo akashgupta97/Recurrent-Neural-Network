@@ -259,3 +259,12 @@ def rnn_backward(da, caches):
     # Loop through all the time steps
     for t in reversed(range(T_x)):
     # Compute gradients at time step t. Choose wisely the "da_next" and the "cache" to use in the backward propagation step. (≈1 line)
+
+
+    gradients = rnn_cell_backward(da[:, :, t] + da_prevt, caches[t])
+    # Retrieve derivatives from gradients (≈ 1 line)
+    dxt, da_prevt, dWaxt, dWaat, dbat = gradients["dxt"], gradients["da_prev"], gradients["dWax"], gradients["dWaa"], \
+                                        gradients["dba"]
+    # Increment global derivatives w.r.t parameters by adding their derivative at time-step t (≈4 lines)
+
+    
