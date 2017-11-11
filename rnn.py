@@ -267,4 +267,13 @@ def rnn_backward(da, caches):
                                         gradients["dba"]
     # Increment global derivatives w.r.t parameters by adding their derivative at time-step t (≈4 lines)
 
-    
+    dx[:, :, t] = dxt
+    dWax += dWaxt
+    dWaa += dWaat
+    dba += dbat
+
+    # Set da0 to the gradient of a which has been backpropagated through all time-steps (≈1 line)
+
+
+da0 = da_prevt
+### END CODE HERE ###
