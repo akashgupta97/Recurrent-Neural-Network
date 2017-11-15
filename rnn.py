@@ -292,3 +292,10 @@ Wax = np.random.randn(5,3)
 Waa = np.random.randn(5,5)
 Wya = np.random.randn(2,5)
 ba = np.random.randn(5,1)
+
+
+by = np.random.randn(2,1)
+parameters = {"Wax": Wax, "Waa": Waa, "Wya": Wya, "ba": ba, "by": by}
+a, y, caches = rnn_forward(x, a0, parameters)
+da = np.random.randn(5, 10, 4)
+gradients = rnn_backward(da, caches)
