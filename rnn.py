@@ -299,3 +299,12 @@ parameters = {"Wax": Wax, "Waa": Waa, "Wya": Wya, "ba": ba, "by": by}
 a, y, caches = rnn_forward(x, a0, parameters)
 da = np.random.randn(5, 10, 4)
 gradients = rnn_backward(da, caches)
+
+
+print("gradients[\"dx\"][1][2] =", gradients["dx"][1][2])
+print("gradients[\"dx\"].shape =", gradients["dx"].shape)
+print("gradients[\"da0\"][2][3] =", gradients["da0"][2][3])
+print("gradients[\"da0\"].shape =", gradients["da0"].shape)
+print("gradients[\"dWax\"][3][1] =", gradients["dWax"][3][1])
+print("gradients[\"dWax\"].shape =", gradients["dWax"].shape)
+
