@@ -308,3 +308,7 @@ print("gradients[\"da0\"].shape =", gradients["da0"].shape)
 print("gradients[\"dWax\"][3][1] =", gradients["dWax"][3][1])
 print("gradients[\"dWax\"].shape =", gradients["dWax"].shape)
 
+print("gradients[\"dWaa\"][1][2] =", gradients["dWaa"][1][2])
+print("gradients[\"dWaa\"].shape =", gradients["dWaa"].shape)
+print("gradients[\"dba\"][4] =", gradients["dba"][4])
+print("gradients[\"dba\"].shape =", gradients["dba"].shape)
