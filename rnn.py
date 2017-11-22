@@ -312,3 +312,36 @@ print("gradients[\"dWaa\"][1][2] =", gradients["dWaa"][1][2])
 print("gradients[\"dWaa\"].shape =", gradients["dWaa"].shape)
 print("gradients[\"dba\"][4] =", gradients["dba"][4])
 print("gradients[\"dba\"].shape =", gradients["dba"].shape)
+
+
+def lstm_cell_backward(da_next, dc_next, cache):
+    """
+    Implement the backward pass for the LSTM-cell (single time-step).
+
+    Arguments:
+    da_next -- Gradients of next hidden state, of shape (n_a, m)
+    dc_next -- Gradients of next cell state, of shape (n_a, m)
+    cache -- cache storing information from the forward pass
+
+    Returns:
+    gradients -- python dictionary containing:
+                        dxt -- Gradient of input data at time-step t, of shape (n_x, m)
+                        da_prev -- Gradient w.r.t. the previous hidden state, numpy array of shape (n_a, m)
+                        dc_prev -- Gradient w.r.t. the previous memory state, of shape (n_a, m, T_x)
+                        dWf -- Gradient w.r.t. the weight matrix of the forget gate, numpy array of shape (n_a, n_a + n_x)
+                        dWi -- Gradient w.r.t. the weight matrix of the update gate, numpy array of shape (n_a, n_a + n_x)
+                        dWc -- Gradient w.r.t. the weight matrix of the memory gate, numpy array of shape (n_a, n_a + n_x)
+                        dWo -- Gradient w.r.t. the weight matrix of the output gate, numpy array of shape (n_a, n_a + n_x)
+                        dbf -- Gradient w.r.t. biases of the forget gate, of shape (n_a, 1)
+                        dbi -- Gradient w.r.t. biases of the update gate, of shape (n_a, 1)
+                        dbc -- Gradient w.r.t. biases of the memory gate, of shape (n_a, 1)
+                        dbo -- Gradient w.r.t. biases of the output gate, of shape (n_a, 1)
+    """
+
+    # Retrieve information from "cache"
+    (a_next, c_next, a_prev, c_prev, ft, it, cct, ot, xt, parameters) = cache
+
+   ### START CODE HERE ###
+    # Retrieve dimensions from xt's and a_next's shape (≈2 lines)
+    n_x, m = xt.shape
+    n_a, m = a_next.shape
