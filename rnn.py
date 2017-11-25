@@ -351,3 +351,10 @@ def lstm_cell_backward(da_next, dc_next, cache):
     dcct = (dc_next * it + ot * (1 - np.square(np.tanh(c_next))) * it * da_next) * (1 - np.square(cct))
     dit = (dc_next * cct + ot * (1 - np.square(np.tanh(c_next))) * cct * da_next) * it * (1 - it)
     dft = (dc_next * c_prev + ot * (1 - np.square(np.tanh(c_next))) * c_prev * da_next) * ft * (1 - ft)
+
+    # Code equations (7) to (10) (≈4 lines)
+    ##dit = None
+    ##dft = None
+    ##dot = None
+    ##dcct = None
+    concat = np.concatenate((a_prev, xt), axis=0)
