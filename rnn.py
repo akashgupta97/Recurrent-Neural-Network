@@ -358,3 +358,11 @@ def lstm_cell_backward(da_next, dc_next, cache):
     ##dot = None
     ##dcct = None
     concat = np.concatenate((a_prev, xt), axis=0)
+
+
+
+    # Compute parameters related derivatives. Use equations (11)-(14) (≈8 lines)
+    dWf = np.dot(dft, concat.T)
+    dWi = np.dot(dit, concat.T)
+    dWc = np.dot(dcct, concat.T)
+    dWo = np.dot(dot, concat.T)
