@@ -366,3 +366,8 @@ def lstm_cell_backward(da_next, dc_next, cache):
     dWi = np.dot(dit, concat.T)
     dWc = np.dot(dcct, concat.T)
     dWo = np.dot(dot, concat.T)
+
+    dbf = np.sum(dft, axis=1, keepdims=True)
+    dbi = np.sum(dit, axis=1, keepdims=True)
+    dbc = np.sum(dcct, axis=1, keepdims=True)
+    dbo = np.sum(dot, axis=1, keepdims=True)
