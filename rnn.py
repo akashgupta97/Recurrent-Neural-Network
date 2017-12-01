@@ -371,3 +371,18 @@ def lstm_cell_backward(da_next, dc_next, cache):
     dbi = np.sum(dit, axis=1, keepdims=True)
     dbc = np.sum(dcct, axis=1, keepdims=True)
     dbo = np.sum(dot, axis=1, keepdims=True)
+
+    # Compute derivatives w.r.t previous hidden state, previous memory state and input. Use equations (15)-(17). (≈3 lines)
+    da_prev = np.dot(parameters['Wf'][:, :n_a].T, dft) + np.dot(parameters['Wi'][:, :n_a].T, dit) + np.dot(
+        parameters['Wc'][:, :n_a].T, dcct) + np.dot(parameters['Wo'][:, :n_a].T, dot)
+    dc_prev = dc_next * ft + ot * (1 - np.square(np.tanh(c_next))) * ft * da_next
+    dxt = np.dot(parameters['Wf'][:, n_a:].T, dft) + np.dot(parameters['Wi'][:, n_a:].T, dit) + np.dot(
+        parameters['Wc'][:, n_a:].T, dcct) + np.dot(parameters['Wo'][:, n_a:].T, dot)
+    ### END CODE HERE ###
+
+
+    # Save gradients in dictionary
+    gradients = {"dxt": dxt, "da_prev": da_prev, "dc_prev": dc_prev, "dWf": dWf,"dbf": dbf, "dWi": dWi,"dbi": dbi,
+                "dWc": dWc,"dbc": dbc, "dWo": dWo,"dbo": dbo}
+
+    return gradients
