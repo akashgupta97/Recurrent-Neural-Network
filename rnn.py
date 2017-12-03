@@ -386,3 +386,13 @@ def lstm_cell_backward(da_next, dc_next, cache):
                 "dWc": dWc,"dbc": dbc, "dWo": dWo,"dbo": dbo}
 
     return gradients
+
+
+np.random.seed(1)
+xt = np.random.randn(3,10)
+a_prev = np.random.randn(5,10)
+c_prev = np.random.randn(5,10)
+Wf = np.random.randn(5, 5+3)
+bf = np.random.randn(5,1)
+Wi = np.random.randn(5, 5+3)
+
