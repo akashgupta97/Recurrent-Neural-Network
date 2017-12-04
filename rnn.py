@@ -396,3 +396,7 @@ Wf = np.random.randn(5, 5+3)
 bf = np.random.randn(5,1)
 Wi = np.random.randn(5, 5+3)
 
+bi = np.random.randn(5,1)
+Wo = np.random.randn(5, 5+3)
+bo = np.random.randn(5,1)
+Wc = np.random.randn(5, 5+3)
