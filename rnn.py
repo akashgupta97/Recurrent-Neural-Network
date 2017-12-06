@@ -405,3 +405,8 @@ Wc = np.random.randn(5, 5+3)
 bc = np.random.randn(5,1)
 Wy = np.random.randn(2,5)
 by = np.random.randn(2,1)
+
+
+parameters = {"Wf": Wf, "Wi": Wi, "Wo": Wo, "Wc": Wc, "Wy": Wy, "bf": bf, "bi": bi, "bo": bo, "bc": bc, "by": by}
+
+a_next, c_next, yt, cache = lstm_cell_forward(xt, a_prev, c_prev, parameters)
