@@ -410,3 +410,15 @@ by = np.random.randn(2,1)
 parameters = {"Wf": Wf, "Wi": Wi, "Wo": Wo, "Wc": Wc, "Wy": Wy, "bf": bf, "bi": bi, "bo": bo, "bc": bc, "by": by}
 
 a_next, c_next, yt, cache = lstm_cell_forward(xt, a_prev, c_prev, parameters)
+
+
+da_next = np.random.randn(5,10)
+dc_next = np.random.randn(5,10)
+gradients = lstm_cell_backward(da_next, dc_next, cache)
+print("gradients[\"dxt\"][1][2] =", gradients["dxt"][1][2])
+print("gradients[\"dxt\"].shape =", gradients["dxt"].shape)
+print("gradients[\"da_prev\"][2][3] =", gradients["da_prev"][2][3])
+print("gradients[\"da_prev\"].shape =", gradients["da_prev"].shape)
+print("gradients[\"dc_prev\"][2][3] =", gradients["dc_prev"][2][3])
+print("gradients[\"dc_prev\"].shape =", gradients["dc_prev"].shape)
+
