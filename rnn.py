@@ -438,3 +438,30 @@ print("gradients[\"dbc\"][4] =", gradients["dbc"][4])
 print("gradients[\"dbc\"].shape =", gradients["dbc"].shape)
 print("gradients[\"dbo\"][4] =", gradients["dbo"][4])
 print("gradients[\"dbo\"].shape =", gradients["dbo"].shape)
+
+
+def lstm_backward(da, caches):
+    """
+    Implement the backward pass for the RNN with LSTM-cell (over a whole sequence).
+
+    Arguments:
+    da -- Gradients w.r.t the hidden states, numpy-array of shape (n_a, m, T_x)
+    dc -- Gradients w.r.t the memory states, numpy-array of shape (n_a, m, T_x)
+    caches -- cache storing information from the forward pass (lstm_forward)
+
+    Returns:
+    gradients -- python dictionary containing:
+                        dx -- Gradient of inputs, of shape (n_x, m, T_x)
+                        da0 -- Gradient w.r.t. the previous hidden state, numpy array of shape (n_a, m)
+                        dWf -- Gradient w.r.t. the weight matrix of the forget gate, numpy array of shape (n_a, n_a + n_x)
+                        dWi -- Gradient w.r.t. the weight matrix of the update gate, numpy array of shape (n_a, n_a + n_x)
+                        dWc -- Gradient w.r.t. the weight matrix of the memory gate, numpy array of shape (n_a, n_a + n_x)
+                        dWo -- Gradient w.r.t. the weight matrix of the save gate, numpy array of shape (n_a, n_a + n_x)
+                        dbf -- Gradient w.r.t. biases of the forget gate, of shape (n_a, 1)
+                        dbi -- Gradient w.r.t. biases of the update gate, of shape (n_a, 1)
+                        dbc -- Gradient w.r.t. biases of the memory gate, of shape (n_a, 1)
+                        dbo -- Gradient w.r.t. biases of the save gate, of shape (n_a, 1)
+    """
+
+
+    
