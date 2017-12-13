@@ -463,5 +463,11 @@ def lstm_backward(da, caches):
                         dbo -- Gradient w.r.t. biases of the save gate, of shape (n_a, 1)
     """
 
+    # Retrieve values from the first cache (t=1) of caches.
+    (caches, x) = caches
+    (a1, c1, a0, c0, f1, i1, cc1, o1, x1, parameters) = caches[0]
 
-    
+    ### START CODE HERE ###
+    # Retrieve dimensions from da's and x1's shapes (≈2 lines)
+    n_a, m, T_x = da.shape
+    n_x, m = x1.shape
