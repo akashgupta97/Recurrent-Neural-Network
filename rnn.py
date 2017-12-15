@@ -471,3 +471,17 @@ def lstm_backward(da, caches):
     # Retrieve dimensions from da's and x1's shapes (≈2 lines)
     n_a, m, T_x = da.shape
     n_x, m = x1.shape
+
+    # initialize the gradients with the right sizes (≈12 lines)
+    dx = np.zeros((n_x, m, T_x))
+    da0 = np.zeros((n_a, m))
+    da_prevt = np.zeros(da0.shape)
+    dc_prevt = np.zeros(da0.shape)
+    dWf = np.zeros((n_a, n_a + n_x))
+    dWi = np.zeros(dWf.shape)
+    dWc = np.zeros(dWf.shape)
+    dWo = np.zeros(dWf.shape)
+    dbf = np.zeros((n_a, 1))
+    dbi = np.zeros(dbf.shape)
+    dbc = np.zeros(dbf.shape)
+    dbo = np.zeros(dbf.shape)
