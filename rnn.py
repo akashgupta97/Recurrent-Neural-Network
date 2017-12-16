@@ -485,3 +485,20 @@ def lstm_backward(da, caches):
     dbi = np.zeros(dbf.shape)
     dbc = np.zeros(dbf.shape)
     dbo = np.zeros(dbf.shape)
+
+    # loop back over the whole sequence
+    for t in reversed(range(T_x)):
+        # Compute all gradients using lstm_cell_backward
+        gradients = lstm_cell_backward(da[:, :, t], dc_prevt, caches[t])
+        # Store or add the gradient to the parameters' previous step's gradient
+        dx[:, :, t] = gradients["dxt"]
+        dWf += gradients["dWf"]
+        dWi += gradients["dWi"]
+        dWc += gradients["dWc"]
+        dWo += gradients["dWo"]
+        dbf += gradients["dbf"]
+        dbi += gradients["dbi"]
+        dbc += gradients["dbc"]
+        dbo += gradients["dbo"]
+    # Set the first activation's gradient to the backpropagated gradient da_prev.
+    da0 = gradients["da_prev"]
