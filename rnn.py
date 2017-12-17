@@ -502,3 +502,27 @@ def lstm_backward(da, caches):
         dbo += gradients["dbo"]
     # Set the first activation's gradient to the backpropagated gradient da_prev.
     da0 = gradients["da_prev"]
+
+    ### END CODE HERE ###
+
+    # Store the gradients in a python dictionary
+    gradients = {"dx": dx, "da0": da0, "dWf": dWf, "dbf": dbf, "dWi": dWi, "dbi": dbi,
+                 "dWc": dWc, "dbc": dbc, "dWo": dWo, "dbo": dbo}
+
+    return gradients
+
+
+
+np.random.seed(1)
+x = np.random.randn(3,10,7)
+a0 = np.random.randn(5,10)
+Wf = np.random.randn(5, 5+3)
+bf = np.random.randn(5,1)
+Wi = np.random.randn(5, 5+3)
+bi = np.random.randn(5,1)
+Wo = np.random.randn(5, 5+3)
+bo = np.random.randn(5,1)
+Wc = np.random.randn(5, 5+3)
+bc = np.random.randn(5,1)
+
+parameters = {"Wf": Wf, "Wi": Wi, "Wo": Wo, "Wc": Wc, "Wy": Wy, "bf": bf, "bi": bi, "bo": bo, "bc": bc, "by": by}
