@@ -509,6 +509,7 @@ def lstm_backward(da, caches):
     gradients = {"dx": dx, "da0": da0, "dWf": dWf, "dbf": dbf, "dWi": dWi, "dbi": dbi,
                  "dWc": dWc, "dbc": dbc, "dWo": dWo, "dbo": dbo}
 
+<<<<<<< HEAD
     return gradients
 
 
@@ -526,3 +527,6 @@ Wc = np.random.randn(5, 5+3)
 bc = np.random.randn(5,1)
 
 parameters = {"Wf": Wf, "Wi": Wi, "Wo": Wo, "Wc": Wc, "Wy": Wy, "bf": bf, "bi": bi, "bo": bo, "bc": bc, "by": by}
+=======
+    return gradients
+>>>>>>> c8a53a1288bdb4d4354d330b6c92c804a1f6b1d9
