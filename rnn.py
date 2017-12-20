@@ -509,7 +509,7 @@ def lstm_backward(da, caches):
     gradients = {"dx": dx, "da0": da0, "dWf": dWf, "dbf": dbf, "dWi": dWi, "dbi": dbi,
                  "dWc": dWc, "dbc": dbc, "dWo": dWo, "dbo": dbo}
 
-<<<<<<< HEAD
+
     return gradients
 
 
@@ -527,6 +527,20 @@ Wc = np.random.randn(5, 5+3)
 bc = np.random.randn(5,1)
 
 parameters = {"Wf": Wf, "Wi": Wi, "Wo": Wo, "Wc": Wc, "Wy": Wy, "bf": bf, "bi": bi, "bo": bo, "bc": bc, "by": by}
-=======
-    return gradients
->>>>>>> c8a53a1288bdb4d4354d330b6c92c804a1f6b1d9
+
+
+np.random.seed(1)
+x = np.random.randn(3,10,7)
+a0 = np.random.randn(5,10)
+Wf = np.random.randn(5, 5+3)
+bf = np.random.randn(5,1)
+Wi = np.random.randn(5, 5+3)
+bi = np.random.randn(5,1)
+Wo = np.random.randn(5, 5+3)
+bo = np.random.randn(5,1)
+Wc = np.random.randn(5, 5+3)
+bc = np.random.randn(5,1)
+
+parameters = {"Wf": Wf, "Wi": Wi, "Wo": Wo, "Wc": Wc, "Wy": Wy, "bf": bf, "bi": bi, "bo": bo, "bc": bc, "by": by}
+
+a, y, c, caches = lstm_forward(x, a0, parameters)
