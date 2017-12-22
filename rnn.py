@@ -544,3 +544,18 @@ bc = np.random.randn(5,1)
 parameters = {"Wf": Wf, "Wi": Wi, "Wo": Wo, "Wc": Wc, "Wy": Wy, "bf": bf, "bi": bi, "bo": bo, "bc": bc, "by": by}
 
 a, y, c, caches = lstm_forward(x, a0, parameters)
+
+
+da = np.random.randn(5, 10, 4)
+gradients = lstm_backward(da, caches)
+
+print("gradients[\"dx\"][1][2] =", gradients["dx"][1][2])
+print("gradients[\"dx\"].shape =", gradients["dx"].shape)
+print("gradients[\"da0\"][2][3] =", gradients["da0"][2][3])
+print("gradients[\"da0\"].shape =", gradients["da0"].shape)
+print("gradients[\"dWf\"][3][1] =", gradients["dWf"][3][1])
+print("gradients[\"dWf\"].shape =", gradients["dWf"].shape)
+print("gradients[\"dWi\"][1][2] =", gradients["dWi"][1][2])
+print("gradients[\"dWi\"].shape =", gradients["dWi"].shape)
+print("gradients[\"dWc\"][3][1] =", gradients["dWc"][3][1])
+print("gradients[\"dWc\"].shape =", gradients["dWc"].shape)
